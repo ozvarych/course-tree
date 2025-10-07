@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import Card from "@/app/common/Card";
 import CourseCard from "@/app/components/CourseCard";
@@ -61,7 +61,7 @@ function SearchCourses(): React.ReactElement {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [courses, setCourses] = useState<CourseNode[]>([]);
 
-  const handleSearch = async (newQuery: string) => {
+  const handleSearch = useCallback(async (newQuery: string) => {
     setIsLoading(true);
     setQuery(newQuery);
     setErrorMessage(null);
@@ -74,7 +74,7 @@ function SearchCourses(): React.ReactElement {
       setErrorMessage(response.message);
     }
     setIsLoading(false);
-  };
+  }, []);
 
   const handleClear = () => {
     setQuery("");

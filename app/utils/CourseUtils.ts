@@ -30,7 +30,7 @@ function buildCourseTree(courses: Course[]): CourseNode[] {
     const parentId = node.parent_id;
     if (parentId && parentId !== node.id) {
       const parent = courseMap.get(parentId);
-      if (parent) {
+      if (parent != null) {
         parent.children = parent.children ?? [];
         parent.children.push(node);
         continue;
@@ -45,7 +45,7 @@ function buildCourseTree(courses: Course[]): CourseNode[] {
 }
 
 /**
- * Sort the course tree array by name and children array by name.
+ * Sort the course tree array by ids and children array by ids.
  *
  * @param courseRoots an array of course-trees
  * @returns a sorted array of course-trees and their sorted children
@@ -67,6 +67,9 @@ function sortCourseChildren(courseRoots: CourseNode[]): CourseNode[] {
  * @returns number of sort
  */
 function sortChildren(a: CourseNode, b: CourseNode): number {
+  if (a.id === b.id) {
+    return 0;
+  }
   return a.id < b.id ? -1 : 1;
 }
 

@@ -1,10 +1,8 @@
-"use client";
-
 import React from "react";
 
-type Props = {
+interface Props {
   children: React.ReactElement | React.ReactElement[];
-};
+}
 
 function Card(props: Props): React.ReactElement {
   return (

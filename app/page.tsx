@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import CapIcon from "@/app/icons/CapIcon";

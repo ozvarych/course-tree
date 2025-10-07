@@ -23,6 +23,7 @@ export async function genCourseTree(searchQuery: string): Promise<Response> {
   const q = searchQuery.trim();
 
   try {
+    // Expect a flat-list of courses
     const response = await fetch(`${SEARCH_COURSE_TREE_URI}${q}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },

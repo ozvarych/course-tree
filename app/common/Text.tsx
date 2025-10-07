@@ -1,10 +1,8 @@
-"use client";
-
 import React from "react";
 
 interface Props {
-  className: string;
   children: string;
+  className: string;
   isLoading?: boolean;
 }
 
